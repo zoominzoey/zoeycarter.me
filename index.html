@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoey Carter — Writer, Speaker, Consultant &amp; Community Advocate</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Cormorant Garamond, Newsreader & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            alabaster: '#F7F5F0',
+            parchment: '#EFECE6',
+            ink: '#181615',
+            taupe: '#5A554C',
+            rule: '#D8D2C7',
+            plum: '#43125F',
+            brass: '#B8860B',
+            ochre: '#C87D20'
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            serif: ['"Newsreader"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #F7F5F0;
+      color: #181615;
+      font-family: 'Newsreader', Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Classic Monograph Double-Rule Borders */
+    .masthead-double-rule {
+      border-top: 3px double #181615;
+      border-bottom: 1px solid #D8D2C7;
+    }
+
+    .section-double-rule {
+      border-top: 3px double #D8D2C7;
+    }
+
+    /* Subtle Page Transitions */
+    .page-section {
+      animation: monographFade 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes monographFade {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-plum/15 selection:text-plum">
+
+  <!-- Top Archival Hairline Accent -->
+  <div class="w-full h-1 bg-plum"></div>
+
+  <!-- Centered Monograph Container -->
+  <div class="w-full max-w-[780px] mx-auto px-6 sm:px-10 pt-12 pb-16 sm:pt-16 sm:pb-24 flex-grow flex flex-col">
+
+    <!-- Executive Monograph Masthead -->
+    <header class="mb-12 sm:mb-14">
+      <div class="flex items-center justify-between text-[10px] font-sans uppercase tracking-[0.24em] text-taupe pb-3 border-b border-rule">
+        <span>Portfolio &amp; Monograph</span>
+        <span>Public Policy &amp; Civic Strategy</span>
+      </div>
+
+      <div class="py-8 text-center">
+        <h1 class="font-display text-4xl sm:text-5xl font-semibold tracking-[0.06em] uppercase text-ink">
+          Zoey Carter
+        </h1>
+        <p class="font-sans text-[11px] sm:text-xs uppercase tracking-[0.2em] text-taupe font-medium mt-3">
+          Writer <span class="text-ochre mx-1.5">&bull;</span> Speaker <span class="text-ochre mx-1.5">&bull;</span> Consultant <span class="text-ochre mx-1.5">&amp;</span> Community Advocate
+        </p>
+      </div>
+
+      <!-- 4-Page Monograph Navigation Bar -->
+      <nav class="masthead-double-rule py-3.5" aria-label="Primary Monograph Navigation">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-0 sm:divide-x sm:divide-rule text-center">
+          <button
+            onclick="switchPage('about')"
+            id="nav-about"
+            class="nav-link group py-1.5 px-3 font-sans text-xs uppercase tracking-[0.16em] transition-colors font-semibold text-plum"
+          >
+            <span class="text-[10px] font-normal text-ochre mr-1">I.</span> About Me
+            <span id="ind-about" class="block w-6 h-[1.5px] bg-plum mx-auto mt-1 transition-all"></span>
+          </button>
+
+          <button
+            onclick="switchPage('speaking')"
+            id="nav-speaking"
+            class="nav-link group py-1.5 px-3 font-sans text-xs uppercase tracking-[0.16em] transition-colors font-medium text-taupe hover:text-ink"
+          >
+            <span class="text-[10px] font-normal text-taupe/70 group-hover:text-ochre mr-1">II.</span> Speaking
+            <span id="ind-speaking" class="block w-6 h-[1.5px] bg-transparent mx-auto mt-1 transition-all"></span>
+          </button>
+
+          <button
+            onclick="switchPage('writing')"
+            id="nav-writing"
+            class="nav-link group py-1.5 px-3 font-sans text-xs uppercase tracking-[0.16em] transition-colors font-medium text-taupe hover:text-ink"
+          >
+            <span class="text-[10px] font-normal text-taupe/70 group-hover:text-ochre mr-1">III.</span> Writing
+            <span id="ind-writing" class="block w-6 h-[1.5px] bg-transparent mx-auto mt-1 transition-all"></span>
+          </button>
+
+          <button
+            onclick="switchPage('consulting')"
+            id="nav-consulting"
+            class="nav-link group py-1.5 px-3 font-sans text-xs uppercase tracking-[0.16em] transition-colors font-medium text-taupe hover:text-ink"
+          >
+            <span class="text-[10px] font-normal text-taupe/70 group-hover:text-ochre mr-1">IV.</span> Consulting
+            <span id="ind-consulting" class="block w-6 h-[1.5px] bg-transparent mx-auto mt-1 transition-all"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Editorial Content Area -->
+    <main class="flex-grow">
+
+      <!-- ==========================================
+           SECTION I: ABOUT ME
+           ========================================== -->
+      <section id="page-about" class="page-section block space-y-10">
+
+        <!-- Section Header Index -->
+        <div class="flex items-baseline justify-between border-b border-rule pb-3">
+          <div>
+            <span class="font-sans text-[10px] uppercase tracking-[0.22em] text-ochre font-semibold block">Section I</span>
+            <h2 class="font-display text-2xl sm:text-3xl font-semibold text-ink mt-0.5">Biographical Note &amp; Background</h2>
+          </div>
+          <span class="font-sans text-[10px] uppercase tracking-[0.18em] text-taupe hidden sm:inline">Executive Profile</span>
+        </div>
+
+        <!-- Editorial Portrait & Lead Block -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <!-- Archival Framed Portrait -->
+          <figure class="md:col-span-5 bg-parchment border border-rule p-3.5 shadow-sm">
+            <div class="border border-ink/15 overflow-hidden bg-ink/5">
+              <img
+                src="IMG_1311.JPG"
+                alt="Zoey Carter speaking at a community forum"
+                class="w-full h-auto object-cover object-center block"
+              >
+            </div>
+            <figcaption class="mt-3 pt-2.5 border-t border-rule/80 flex items-center justify-between font-sans text-[10px] tracking-[0.12em] uppercase text-taupe">
+              <span>Plate 01</span>
+              <span class="normal-case italic font-serif text-xs text-ink/80 tracking-normal">Community forum &amp; civic dialogue</span>
+            </figcaption>
+          </figure>
+
+          <!-- Biographical Narrative -->
+          <div class="md:col-span-7 space-y-4 text-[17px] leading-[1.75] text-ink/90">
+            <p class="font-display text-xl sm:text-[22px] leading-snug text-plum font-medium italic">
+              Bridging working-class grit, frontline operational leadership, and rural civic advocacy.
+            </p>
+            <p>
+              Raised in a working-class manufacturing family of machinists, welders, and metal workers in the rural heartland, Zoey Carter learned the value of practical, hands-on stewardship early on. The first high school graduate in her family, she spent seventeen years in retail management—leading high-volume grocery and technology retail operations—before returning to higher education to pursue a degree in Public Policy at Arizona State University.
+            </p>
+            <p>
+              In November 2023, she founded the <strong>Rural Equality Project</strong>, where she serves as Executive Director, advancing community outreach, equity, and durable civic engagement across rural communities.
+            </p>
+            <p>
+              In 2025, Zoey was selected as one of eight <strong>Victory Empowerment Fellows</strong> nationwide by the LGBTQ+ Victory Institute. Her public service and political leadership also include serving as Campaign Manager for Nicole Dopler’s state representative campaign (2026), alongside cohort participation in <strong>She Should Run</strong> (Fall 2026) and the <strong>Dave Tebben Leadership Academy</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Appointments & Fellowships Summary Ledger -->
+        <div class="border-t border-b border-rule py-6 bg-parchment/50 px-5 sm:px-6">
+          <h3 class="font-sans text-[10px] uppercase tracking-[0.22em] text-plum font-semibold mb-4">
+            Selected Appointments &amp; Fellowships
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 font-sans text-xs">
+            <div class="border-l-2 border-plum pl-3.5">
+              <div class="font-semibold text-ink">Rural Equality Project</div>
+              <div class="text-taupe mt-0.5">Founder &amp; Executive Director &middot; Est. Nov 2023</div>
+            </div>
+            <div class="border-l-2 border-ochre pl-3.5">
+              <div class="font-semibold text-ink">LGBTQ+ Victory Institute</div>
+              <div class="text-taupe mt-0.5">2025 Victory Empowerment Fellow (1 of 8 Nationwide)</div>
+            </div>
+            <div class="border-l-2 border-ochre pl-3.5">
+              <div class="font-semibold text-ink">State Legislative Campaign Leadership</div>
+              <div class="text-taupe mt-0.5">Campaign Manager, Nicole Dopler for State Representative (2026)</div>
+            </div>
+            <div class="border-l-2 border-plum pl-3.5">
+              <div class="font-semibold text-ink">Civic &amp; Policy Formation</div>
+              <div class="text-taupe mt-0.5">Arizona State University (Public Policy) &middot; She Should Run (Fall 2026) &middot; Dave Tebben Leadership Academy</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Dossier / Off the Clock Structured Grid -->
+        <div class="border border-rule bg-alabaster p-6 sm:p-7 section-double-rule">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between pb-4 mb-5 border-b border-rule">
+            <h3 class="font-display text-xl font-semibold text-ink">
+              Personal Dossier &mdash; <span class="italic font-normal text-taupe">Off the Clock</span>
+            </h3>
+            <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-ochre font-semibold mt-1 sm:mt-0">
+              Field Notes &amp; Pursuits
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm leading-relaxed">
+            <div>
+              <div class="font-sans text-[10px] uppercase tracking-[0.18em] text-plum font-semibold mb-1">01 / Outdoors &amp; Trails</div>
+              <p class="text-ink/85">Hiking quiet forest trails and fishing local waters across the Midwest.</p>
+            </div>
+
+            <div>
+              <div class="font-sans text-[10px] uppercase tracking-[0.18em] text-plum font-semibold mb-1">02 / Mechanical Craft</div>
+              <p class="text-ink/85">Maintaining and wrenching on personal automobiles—carrying forward a family tradition of hands-on mechanical work.</p>
+            </div>
+
+            <div>
+              <div class="font-sans text-[10px] uppercase tracking-[0.18em] text-plum font-semibold mb-1">03 / Analog Photography</div>
+              <p class="text-ink/85">Practicing amateur instant-film photography with vintage Polaroid cameras.</p>
+            </div>
+
+            <div>
+              <div class="font-sans text-[10px] uppercase tracking-[0.18em] text-plum font-semibold mb-1">04 / Home &amp; Menagerie</div>
+              <p class="text-ink/85">Life at home with her partner, two dogs (<em>Tildy</em> and <em>Dolly</em>), and four cats (<em>Sherman</em>, <em>Panzer</em>, <em>Liliana</em>, and <em>Naya</em>).</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==========================================
+           SECTION II: SPEAKING
+           ========================================== -->
+      <section id="page-speaking" class="page-section hidden space-y-10">
+
+        <!-- Section Header Index -->
+        <div class="flex items-baseline justify-between border-b border-rule pb-3">
+          <div>
+            <span class="font-sans text-[10px] uppercase tracking-[0.22em] text-ochre font-semibold block">Section II</span>
+            <h2 class="font-display text-2xl sm:text-3xl font-semibold text-ink mt-0.5">Keynotes, Panels &amp; Lectures</h2>
+          </div>
+          <span class="font-sans text-[10px] uppercase tracking-[0.18em] text-taupe hidden sm:inline">Speaker Docket</span>
+        </div>
+
+        <!-- Editorial Feature Portrait & Intro -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <figure class="md:col-span-5 bg-parchment border border-rule p-3.5 shadow-sm">
+            <div class="border border-ink/15 overflow-hidden bg-ink/5">
+              <img
+                src="287A4760.jpg"
+                alt="Zoey Carter addressing an outdoor assembly"
+                class="w-full h-auto max-h-[400px] object-cover object-center block"
+              >
+            </div>
+            <figcaption class="mt-3 pt-2.5 border-t border-rule/80 flex items-center justify-between font-sans text-[10px] tracking-[0.12em] uppercase text-taupe">
+              <span>Plate 02</span>
+              <span class="normal-case italic font-serif text-xs text-ink/80 tracking-normal">Public address &amp; regional advocacy</span>
+            </figcaption>
+          </figure>
+
+          <div class="md:col-span-7 space-y-4">
+            <p class="font-display text-2xl leading-snug text-plum italic">
+              Plainspoken, practical perspectives on rural civic infrastructure, working-class leadership, and public service.
+            </p>
+            <p class="text-[17px] leading-[1.75] text-ink/90">
+              Zoey speaks to civic organizations, university forums, leadership cohorts, and conferences nationwide. Drawing on nearly two decades of frontline management, nonprofit executive direction, and legislative campaign leadership, her remarks equip audiences with actionable frameworks for organizing outside major metropolitan centers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Numbered Executive Speaking Docket -->
+        <div class="space-y-4 pt-2">
+          <div class="font-sans text-[10px] uppercase tracking-[0.22em] text-taupe font-semibold pb-1 border-b border-rule">
+            Core Speaking Topics
+          </div>
+
+          <!-- Topic 01 -->
+          <article class="p-6 bg-parchment/55 border border-rule hover:border-plum/40 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-5">
+              <span class="font-sans text-xs font-bold tracking-[0.2em] text-ochre shrink-0">01 / KEYNOTE</span>
+              <div>
+                <h3 class="font-display text-xl sm:text-2xl font-semibold text-ink">
+                  Grassroots Organizing in Rural Communities
+                </h3>
+                <p class="mt-2 text-base leading-relaxed text-ink/85">
+                  Building durable coalitions, neighbor-to-neighbor trust, and lasting civic infrastructure outside major metro areas.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Topic 02 -->
+          <article class="p-6 bg-parchment/55 border border-rule hover:border-plum/40 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-5">
+              <span class="font-sans text-xs font-bold tracking-[0.2em] text-ochre shrink-0">02 / KEYNOTE</span>
+              <div>
+                <h3 class="font-display text-xl sm:text-2xl font-semibold text-ink">
+                  From the Shop Floor to Public Policy
+                </h3>
+                <p class="mt-2 text-base leading-relaxed text-ink/85">
+                  How seventeen years in retail leadership and working-class roots shape practical, people-first governance and community advocacy.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Topic 03 -->
+          <article class="p-6 bg-parchment/55 border border-rule hover:border-plum/40 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-5">
+              <span class="font-sans text-xs font-bold tracking-[0.2em] text-ochre shrink-0">03 / KEYNOTE</span>
+              <div>
+                <h3 class="font-display text-xl sm:text-2xl font-semibold text-ink">
+                  Authentic Leadership &amp; Representation
+                </h3>
+                <p class="mt-2 text-base leading-relaxed text-ink/85">
+                  Navigating public service, national fellowship lessons, and empowering underrepresented voices to step forward, run, and lead.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Direct Speaking Inquiry Callout -->
+        <div class="p-6 sm:p-7 border border-rule bg-parchment section-double-rule flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+          <div>
+            <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-plum font-semibold block">Bookings &amp; Invitations</span>
+            <h3 class="font-display text-xl font-semibold text-ink mt-0.5">Inquire About Speaking Availability</h3>
+            <p class="font-sans text-xs text-taupe mt-1">
+              Direct correspondence to <a href="mailto:contact@zoeycarter.me?subject=Speaking%20Inquiry" class="text-ink underline underline-offset-4 hover:text-plum">contact@zoeycarter.me</a>
+            </p>
+          </div>
+          <a
+            href="mailto:contact@zoeycarter.me?subject=Speaking%20Inquiry"
+            class="inline-block text-center px-5 py-3 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-alabaster bg-plum hover:bg-ink transition-colors shrink-0"
+          >
+            Request Speaking Engagement &rarr;
+          </a>
+        </div>
+
+      </section>
+
+      <!-- ==========================================
+           SECTION III: WRITING
+           ========================================== -->
+      <section id="page-writing" class="page-section hidden space-y-10">
+
+        <!-- Section Header Index -->
+        <div class="flex items-baseline justify-between border-b border-rule pb-3">
+          <div>
+            <span class="font-sans text-[10px] uppercase tracking-[0.22em] text-ochre font-semibold block">Section III</span>
+            <h2 class="font-display text-2xl sm:text-3xl font-semibold text-ink mt-0.5">Editorial Publication</h2>
+          </div>
+          <span class="font-sans text-[10px] uppercase tracking-[0.18em] text-taupe hidden sm:inline">Serial Monograph</span>
+        </div>
+
+        <!-- Prestigious Publication Showcase: Down The Dirt Road (Exclusive to Writing Page) -->
+        <div class="border border-rule bg-parchment/70 p-7 sm:p-10 section-double-rule space-y-8">
+
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-5 border-b border-rule font-sans text-[10px] uppercase tracking-[0.2em] text-taupe">
+            <span class="text-plum font-semibold">Substack Publication</span>
+            <span>Cadence: Twice-Monthly Dispatches</span>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="font-display text-3xl sm:text-4xl font-semibold text-ink tracking-tight">
+              Down The Dirt Road
+            </h3>
+            <p class="font-display text-xl italic text-plum leading-snug">
+              Essays on community stories, working-class perspectives, regional advocacy, and personal dispatches from the rural heartland.
+            </p>
+            <p class="text-[17px] leading-[1.75] text-ink/90 pt-2">
+              <strong>Down The Dirt Road</strong> is Zoey Carter’s twice-monthly publication examining life, labor, and civic possibility outside major metropolitan centers. Written with the candor of the shop floor and the rigor of public policy analysis, each edition explores what it takes to build resilient communities and honest representation from the ground up.
+            </p>
+          </div>
+
+          <!-- Thematic Pillars Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-4 border-t border-rule">
+            <div class="p-4 bg-alabaster border border-rule/80">
+              <div class="font-sans text-[10px] uppercase tracking-[0.18em] text-ochre font-semibold mb-1.5">Pillar I</div>
+              <div class="font-display text-lg font-semibold text-ink mb-1">Community &amp; Labor</div>
+              <p class="text-xs leading-relaxed text-taupe font-sans">
+                Reflections on blue-collar heritage, frontline work, and the everyday institutions that anchor small towns.
+              </p>
+            </div>
+
+            <div class="p-4 bg-alabaster border border-rule/80">
+              <div class="font-sans text-[10px] uppercase tracking-[0.18em] text-ochre font-semibold mb-1.5">Pillar II</div>
+              <div class="font-display text-lg font-semibold text-ink mb-1">Regional Advocacy</div>
+              <p class="text-xs leading-relaxed text-taupe font-sans">
+                Field notes on rural organizing, coalition building, and translating public policy into local impact.
+              </p>
+            </div>
+
+            <div class="p-4 bg-alabaster border border-rule/80">
+              <div class="font-sans text-[10px] uppercase tracking-[0.18em] text-ochre font-semibold mb-1.5">Pillar III</div>
+              <div class="font-display text-lg font-semibold text-ink mb-1">Personal Dispatches</div>
+              <p class="text-xs leading-relaxed text-taupe font-sans">
+                Twice-monthly essays on leadership, stewardship, and life off the beaten path.
+              </p>
+            </div>
+          </div>
+
+          <!-- Prominent Substack CTA -->
+          <div class="pt-4 border-t border-rule flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div class="font-sans text-xs text-taupe">
+              Published directly via Substack at <span class="text-ink font-medium">tothatzoey.substack.com</span>
+            </div>
+            <a
+              href="https://tothatzoey.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block text-center px-6 py-3 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-alabaster bg-plum hover:bg-ink transition-colors shrink-0"
+            >
+              Read &amp; Subscribe on Substack &rarr;
+            </a>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ==========================================
+           SECTION IV: CONSULTING
+           ========================================== -->
+      <section id="page-consulting" class="page-section hidden space-y-10">
+
+        <!-- Section Header Index -->
+        <div class="flex items-baseline justify-between border-b border-rule pb-3">
+          <div>
+            <span class="font-sans text-[10px] uppercase tracking-[0.22em] text-ochre font-semibold block">Section IV</span>
+            <h2 class="font-display text-2xl sm:text-3xl font-semibold text-ink mt-0.5">Executive &amp; Civic Advisory</h2>
+          </div>
+          <span class="font-sans text-[10px] uppercase tracking-[0.18em] text-taupe hidden sm:inline">Consulting Practice</span>
+        </div>
+
+        <!-- Practice Overview -->
+        <div class="space-y-3">
+          <p class="font-display text-2xl leading-snug text-plum italic">
+            Disciplined strategy, organizational stewardship, and frontline operational counsel.
+          </p>
+          <p class="text-[17px] leading-[1.75] text-ink/90">
+            Zoey partners with nonprofit leaders, civic initiatives, candidates, and mission-driven teams seeking grounded strategy and reliable execution.
+          </p>
+        </div>
+
+        <!-- Three Advisory Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- Pillar 01 -->
+          <div class="p-6 bg-parchment/60 border border-rule flex flex-col justify-between">
+            <div>
+              <div class="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-ochre mb-2">
+                Advisory 01
+              </div>
+              <h3 class="font-display text-xl font-semibold text-ink leading-snug">
+                Rural Outreach &amp; Nonprofit Strategy
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/85">
+                Founding-to-scale guidance, coalition building, and authentic community engagement for organizations working in non-metro regions.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-rule/80 font-sans text-[10px] uppercase tracking-[0.15em] text-taupe">
+              Coalitions &middot; Governance
+            </div>
+          </div>
+
+          <!-- Pillar 02 -->
+          <div class="p-6 bg-parchment/60 border border-rule flex flex-col justify-between">
+            <div>
+              <div class="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-ochre mb-2">
+                Advisory 02
+              </div>
+              <h3 class="font-display text-xl font-semibold text-ink leading-snug">
+                Campaign &amp; Civic Operations
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/85">
+                Grassroots field strategy, message discipline, and operational management informed by frontline state legislative campaign leadership.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-rule/80 font-sans text-[10px] uppercase tracking-[0.15em] text-taupe">
+              Field Strategy &middot; Execution
+            </div>
+          </div>
+
+          <!-- Pillar 03 -->
+          <div class="p-6 bg-parchment/60 border border-rule flex flex-col justify-between">
+            <div>
+              <div class="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-ochre mb-2">
+                Advisory 03
+              </div>
+              <h3 class="font-display text-xl font-semibold text-ink leading-snug">
+                Operational Leadership &amp; Team Culture
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/85">
+                Practical management advisory, workflow design, and frontline team development drawing on seventeen years of high-volume retail and team leadership.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-rule/80 font-sans text-[10px] uppercase tracking-[0.15em] text-taupe">
+              Management &middot; Systems
+            </div>
+          </div>
+        </div>
+
+        <!-- Structured Consulting Inquiry Form -->
+        <div class="p-6 sm:p-8 border border-rule bg-parchment/80 section-double-rule">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between pb-4 mb-6 border-b border-rule">
+            <div>
+              <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-plum font-semibold block">Direct Correspondence</span>
+              <h3 class="font-display text-2xl font-semibold text-ink mt-0.5">Initiate an Advisory Inquiry</h3>
+            </div>
+            <a href="mailto:contact@zoeycarter.me" class="font-sans text-xs text-taupe hover:text-plum underline underline-offset-4 mt-1 sm:mt-0">
+              contact@zoeycarter.me
+            </a>
+          </div>
+
+          <form id="consulting-form" onsubmit="handleConsultingSubmit(event)" class="space-y-5 font-sans">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="inq-name" class="block text-[11px] uppercase tracking-[0.14em] font-semibold text-taupe mb-1.5">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="inq-name"
+                  required
+                  placeholder="Jane Doe"
+                  class="w-full px-3.5 py-2.5 text-xs bg-alabaster border border-rule text-ink focus:border-plum focus:outline-none transition-colors"
+                >
+              </div>
+              <div>
+                <label for="inq-email" class="block text-[11px] uppercase tracking-[0.14em] font-semibold text-taupe mb-1.5">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="inq-email"
+                  required
+                  placeholder="jane@organization.org"
+                  class="w-full px-3.5 py-2.5 text-xs bg-alabaster border border-rule text-ink focus:border-plum focus:outline-none transition-colors"
+                >
+              </div>
+            </div>
+
+            <div>
+              <label for="inq-pillar" class="block text-[11px] uppercase tracking-[0.14em] font-semibold text-taupe mb-1.5">
+                Area of Counsel
+              </label>
+              <select
+                id="inq-pillar"
+                class="w-full px-3.5 py-2.5 text-xs bg-alabaster border border-rule text-ink focus:border-plum focus:outline-none transition-colors"
+              >
+                <option value="01. Rural Outreach & Nonprofit Strategy">01. Rural Outreach &amp; Nonprofit Strategy</option>
+                <option value="02. Campaign & Civic Operations">02. Campaign &amp; Civic Operations</option>
+                <option value="03. Operational Leadership & Team Culture">03. Operational Leadership &amp; Team Culture</option>
+                <option value="General Advisory Inquiry">General Advisory Inquiry</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="inq-message" class="block text-[11px] uppercase tracking-[0.14em] font-semibold text-taupe mb-1.5">
+                Scope &amp; Timeline Overview
+              </label>
+              <textarea
+                id="inq-message"
+                rows="3"
+                required
+                placeholder="Briefly describe your organization, campaign, or operational objectives..."
+                class="w-full px-3.5 py-2.5 text-xs bg-alabaster border border-rule text-ink focus:border-plum focus:outline-none transition-colors"
+              ></textarea>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+              <button
+                type="submit"
+                class="px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-alabaster bg-plum hover:bg-ink transition-colors"
+              >
+                Prepare Correspondence &rarr;
+              </button>
+              <span id="form-status" class="hidden text-xs font-medium text-plum"></span>
+            </div>
+          </form>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Minimalist Monograph Colophon Footer (Strictly Copyright & Email Only) -->
+    <footer class="mt-20 pt-6 border-t border-rule flex flex-col sm:flex-row items-center justify-between gap-3 font-sans text-[11px] uppercase tracking-[0.16em] text-taupe">
+      <div>
+        &copy; <span id="year-span">2026</span> Zoey Carter. All Rights Reserved.
+      </div>
+      <div>
+        <a href="mailto:contact@zoeycarter.me" class="text-ink hover:text-plum underline underline-offset-4 transition-colors lowercase tracking-wider font-medium">
+          contact@zoeycarter.me
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Tab Navigation & Correspondence Script -->
+  <script>
+    function switchPage(pageId) {
+      const pages = ['about', 'speaking', 'writing', 'consulting'];
+
+      pages.forEach(id => {
+        const section = document.getElementById('page-' + id);
+        const navBtn = document.getElementById('nav-' + id);
+        const navInd = document.getElementById('ind-' + id);
+
+        if (id === pageId) {
+          if (section) {
+            section.classList.remove('hidden');
+            section.classList.add('block');
+          }
+          if (navBtn) {
+            navBtn.classList.remove('font-medium', 'text-taupe');
+            navBtn.classList.add('font-semibold', 'text-plum');
+          }
+          if (navInd) {
+            navInd.classList.remove('bg-transparent');
+            navInd.classList.add('bg-plum');
+          }
+        } else {
+          if (section) {
+            section.classList.add('hidden');
+            section.classList.remove('block');
+          }
+          if (navBtn) {
+            navBtn.classList.remove('font-semibold', 'text-plum');
+            navBtn.classList.add('font-medium', 'text-taupe');
+          }
+          if (navInd) {
+            navInd.classList.remove('bg-plum');
+            navInd.classList.add('bg-transparent');
+          }
+        }
+      });
+    }
+
+    function handleConsultingSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('inq-name').value.trim();
+      const email = document.getElementById('inq-email').value.trim();
+      const pillar = document.getElementById('inq-pillar').value;
+      const message = document.getElementById('inq-message').value.trim();
+
+      const subject = encodeURIComponent('Advisory Inquiry — ' + pillar);
+      const body = encodeURIComponent(
+        'Name: ' + name +
+        '\nEmail: ' + email +
+        '\nAdvisory Pillar: ' + pillar +
+        '\n\nProject Overview:\n' + message
+      );
+
+      const statusEl = document.getElementById('form-status');
+      if (statusEl) {
+        statusEl.textContent = 'Opening email client addressed to contact@zoeycarter.me...';
+        statusEl.classList.remove('hidden');
+      }
+
+      window.location.href = 'mailto:contact@zoeycarter.me?subject=' + subject + '&body=' + body;
+    }
+  </script>
+</body>
+</html>
