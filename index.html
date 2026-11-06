@@ -121,6 +121,7 @@
         title="Return to main page"
         class="text-left text-2xl sm:text-[26px] font-semibold tracking-tight text-[#1C1C1C] hover:text-[#2D6A4F] transition-colors focus:outline-none flex items-center gap-2.5 group"
       >
+        <span class="w-2.5 h-2.5 rounded-full bg-[#2D6A4F] group-hover:bg-[#D95D39] transition-colors"></span>
         <span>Zoey Carter</span>
       </button>
 
@@ -142,7 +143,7 @@
         </button>
       </nav>
     </header>
-    
+
     <!-- Main Single-Column Content -->
     <main>
 
@@ -150,7 +151,7 @@
       <section id="view-home" class="page-view active-view space-y-8" aria-label="Home">
         
         <!-- Home Photo Spot (4:3 Featured Portrait Frame) -->
-        <figure class="rounded-2xl overflow-hidden bg-[#EAF4EE] border-2 border-[#2D6A4F]/40 p-2.5 sm:p-3 transition-all hover:border-[#2D6A4F]">
+        <figure class="rounded-2xl overflow-hidden bg-[#EAF4EE] border-2 border-dashed border-[#2D6A4F]/40 p-2.5 sm:p-3 transition-all hover:border-[#2D6A4F]">
           <div 
             onclick="triggerPhotoUpload('input-home')" 
             role="button"
@@ -161,7 +162,8 @@
           >
             <img 
               id="img-home" 
-              src="images/zoey-home.jpg"
+              src="images/zoey-home.jpg" 
+              alt="Zoey Carter — Pekin, Illinois" 
               class="w-full h-full object-cover hidden"
               onload="handleImageLoaded('home')"
               onerror="handleImageError('home')"
@@ -196,7 +198,27 @@
               onchange="previewUploadedPhoto(event, 'home')" 
             />
           </div>
+          <figcaption class="pt-2.5 px-1 flex items-center justify-between text-xs sm:text-sm text-stone-700">
+            <span class="font-medium text-[#2D6A4F]">Zoey Carter — Pekin, Illinois</span>
+            <span class="text-stone-500 text-xs">Central Illinois</span>
+          </figcaption>
         </figure>
+
+        <!-- Colorful Role Pill Badges -->
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-[#E3F1EA] text-[#2D6A4F]">
+            Writer
+          </span>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-[#FDF0D5] text-[#B36B00]">
+            Speaker
+          </span>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-[#F9E5EC] text-[#8F3958]">
+            Consultant
+          </span>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-[#E4F0F3] text-[#335C67]">
+            Community Advocate
+          </span>
+        </div>
 
         <!-- Warm Tinted Hero Card -->
         <div class="p-6 sm:p-8 rounded-2xl bg-[#EFF6F2] border border-[#CFE3D8] border-l-4 border-l-[#2D6A4F] space-y-4">
@@ -204,12 +226,12 @@
             Advancing rural equity, practical leadership, and community stories in Central Illinois.
           </h1>
           <p class="text-base sm:text-lg text-stone-700 leading-relaxed">
-            Zoey Carter is the Founder and Executive Director of the <strong>Rural Equality Project</strong> and author of the monthly Substack publication <em>Down The Dirt Road</em>. Based in Pekin, Illinois, her work bridges working-class lived experience with grassroots organizing and public policy.
+            Zoey Carter is the Founder and Executive Director of the <strong>Rural Equality Project</strong> and author of the twice-monthly Substack publication <em>Down The Dirt Road</em>. Based in Pekin, Illinois, her work bridges working-class lived experience with grassroots organizing and public policy.
           </p>
         </div>
 
         <!-- Colorful Quick Navigation Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
           <button 
             type="button" 
             onclick="navigateTo('about')" 
@@ -270,26 +292,58 @@
             </div>
           </button>
         </div>
-      
+      </section>
+
       <!-- 2. ABOUT ME VIEW (Terracotta #D95D39 Theme) -->
       <section id="view-about" class="page-view space-y-7" aria-label="About Me">
         <div class="space-y-2">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#FDF0EC] text-[#D95D39]">
+            Pekin, Illinois
+          </span>
           <h1 class="text-3xl sm:text-4xl font-semibold text-[#1C1C1C]">
             About Me
           </h1>
         </div>
 
         <!-- About Me Photo Spot (4:3 Warm Editorial / Polaroid-Inspired Frame) -->
-        <figure class="rounded-2xl overflow-hidden bg-[#FDF0EC] border-2 border-[#D95D39]/45 p-3 sm:p-4 shadow-sm transition-all hover:border-[#D95D39]">
+        <figure class="rounded-2xl overflow-hidden bg-[#FDF0EC] border-2 border-dashed border-[#D95D39]/45 p-3 sm:p-4 shadow-sm transition-all hover:border-[#D95D39]">
           <div 
+            onclick="triggerPhotoUpload('input-about')" 
+            role="button"
+            tabindex="0"
+            onkeydown="if(event.key==='Enter'||event.key===' ') triggerPhotoUpload('input-about')"
+            class="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-[#FFF8F6] flex flex-col items-center justify-center text-center cursor-pointer group"
+            title="Click to preview a photo from your device"
           >
             <img 
               id="img-about" 
-              src="287A4741.jpg" 
+              src="images/zoey-about.jpg" 
+              alt="At home in Central Illinois" 
               class="w-full h-full object-cover hidden"
               onload="handleImageLoaded('about')"
               onerror="handleImageError('about')"
             />
+            <div id="placeholder-about" class="p-6 flex flex-col items-center justify-center space-y-2.5">
+              <div class="w-12 h-12 rounded-full bg-[#D95D39]/15 text-[#D95D39] flex items-center justify-center group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+              </div>
+              <p class="font-serif text-lg font-medium text-[#1C1C1C]">Personal / Hometown Photo Spot</p>
+              <p class="text-xs font-mono text-[#D95D39] bg-[#FDF0EC] px-2.5 py-1 rounded-md border border-[#D95D39]/25">
+                images/zoey-about.jpg &middot; 4:3 Editorial Frame
+              </p>
+              <span class="text-xs text-stone-600 underline underline-offset-4 group-hover:text-[#D95D39]">
+                Click to preview a photo from your device
+              </span>
+            </div>
+            <button 
+              id="change-btn-about"
+              type="button"
+              class="hidden absolute bottom-3 right-3 px-3 py-1.5 rounded-full text-xs font-semibold bg-black/70 text-white hover:bg-black transition-colors"
+            >
+              Change Photo
+            </button>
             <input 
               id="input-about" 
               type="file" 
@@ -298,14 +352,31 @@
               onchange="previewUploadedPhoto(event, 'about')" 
             />
           </div>
+          <figcaption class="pt-3 px-1 flex items-center justify-between text-xs sm:text-sm text-stone-700">
+            <span class="font-serif italic text-base text-[#9E3B1E]">At home in Central Illinois</span>
+            <span class="text-stone-500 text-xs">Pekin, IL</span>
+          </figcaption>
         </figure>
 
         <div class="space-y-5 text-base sm:text-lg text-stone-700 leading-relaxed">
           <p>
-            Intro
+            Raised in Pekin, Illinois, in a working-class manufacturing family of machinists, welders, and metalworkers, Zoey Carter was the first in her family to graduate from Pekin Community High School.
           </p>
           <p>
             Before entering nonprofit leadership and public advocacy, she spent 17 years in retail management leading high-volume grocery and technology stores. In November 2023, she founded the <strong class="text-[#1C1C1C]">Rural Equality Project</strong>, where she serves as Executive Director advancing outreach, civic participation, and visibility across rural Illinois.
+          </p>
+          <p>
+            She is currently studying Public Policy at Arizona State University and is a participant in the Dave Tebben Leadership Academy.
+          </p>
+        </div>
+
+        <!-- Soft Peach-Tinted Highlight Box -->
+        <div class="p-6 rounded-2xl bg-[#FDF0EC] border border-[#F5D5CC] border-l-4 border-l-[#D95D39] space-y-3">
+          <h2 class="font-serif text-xl font-medium text-[#9E3B1E]">
+            Life at Home
+          </h2>
+          <p class="text-sm sm:text-base text-stone-700 leading-relaxed">
+            Zoey lives in Pekin with her partner, their two dogs (<strong>Tildy</strong> and <strong>Dolly</strong>), and four cats (<strong>Sherman</strong>, <strong>Panzer</strong>, <strong>Liliana</strong>, and <strong>Naya</strong>). Outside of her public work, she enjoys hiking, fishing, and working on cars.
           </p>
         </div>
       </section>
@@ -313,6 +384,9 @@
       <!-- 3. SPEAKING VIEW (Warm Ochre #E09F3E Theme) -->
       <section id="view-speaking" class="page-view space-y-7" aria-label="Speaking">
         <div class="space-y-3">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#FEF8EC] text-[#B86E14] border border-[#F7E3BA]">
+            Keynotes, Panels &amp; Workshops
+          </span>
           <h1 class="text-3xl sm:text-4xl font-semibold text-[#1C1C1C]">
             Speaking
           </h1>
@@ -322,7 +396,7 @@
         </div>
 
         <!-- Speaking Photo Spot (16:9 Stage / Keynote Frame) -->
-        <figure class="rounded-2xl overflow-hidden bg-[#FEF8EC] border-2 border-[#E09F3E]/55 p-2.5 sm:p-3 transition-all hover:border-[#E09F3E]">
+        <figure class="rounded-2xl overflow-hidden bg-[#FEF8EC] border-2 border-dashed border-[#E09F3E]/55 p-2.5 sm:p-3 transition-all hover:border-[#E09F3E]">
           <div 
             onclick="triggerPhotoUpload('input-speaking')" 
             role="button"
@@ -378,7 +452,7 @@
         <div class="space-y-4">
           <div class="p-5 rounded-xl bg-[#FEF8EC] border border-[#F7E3BA] border-l-4 border-l-[#E09F3E]">
             <h2 class="font-serif text-xl font-medium text-[#1C1C1C]">
-              Bridging the Urban-Rural Divide
+              Rural Advocacy &amp; Equity
             </h2>
             <p class="text-sm sm:text-base text-stone-700 mt-1 leading-relaxed">
               Practical strategies for building trust, shared language, and durable coalitions across small towns, rural counties, and urban centers.
@@ -387,7 +461,7 @@
 
           <div class="p-5 rounded-xl bg-[#FEF8EC] border border-[#F7E3BA] border-l-4 border-l-[#D95D39]">
             <h2 class="font-serif text-xl font-medium text-[#1C1C1C]">
-              Working-Class Leadership &amp; Policy
+              Working-Class Leadership
             </h2>
             <p class="text-sm sm:text-base text-stone-700 mt-1 leading-relaxed">
               How growing up in a family of Midwestern machinists, welders, and metalworkers shapes authentic public policy and inclusive civic leadership.
@@ -405,7 +479,7 @@
 
           <div class="p-5 rounded-xl bg-[#FEF8EC] border border-[#F7E3BA] border-l-4 border-l-[#335C67]">
             <h2 class="font-serif text-xl font-medium text-[#1C1C1C]">
-              From Retail Floors to Public Policy
+              Bridging Retail Management &amp; Public Policy
             </h2>
             <p class="text-sm sm:text-base text-stone-700 mt-1 leading-relaxed">
               What 17 years of leading grocery and technology stores teaches us about frontline resilience, empathy, and people-first governance.
@@ -414,26 +488,33 @@
         </div>
 
         <div class="pt-2">
-          <a 
-            href="mailto:contact@zoeycarter.me?subject=Speaking%20Inquiry%20for%20Zoey%20Carter" 
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#E09F3E] text-white text-sm font-semibold hover:bg-[#B86E14] transition-colors"
+          <button 
+            type="button"
+            onclick="navigateToContactWithTopic('Speaking Engagement')"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#E09F3E] text-white text-sm font-semibold hover:bg-[#B86E14] transition-colors focus:outline-none"
           >
-            <span>Book Zoey to Speak (contact@zoeycarter.me)</span>
+            <span>Book Zoey to Speak</span>
             <span>&rarr;</span>
-          </a>
+          </button>
         </div>
       </section>
 
       <!-- 4. WRITING VIEW (Deep Slate Blue #335C67 Theme) -->
       <section id="view-writing" class="page-view space-y-7" aria-label="Writing">
         <div class="space-y-3">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#ECF3F5] text-[#335C67] border border-[#CBE0E5]">
+            Twice-Monthly Publication
+          </span>
           <h1 class="text-3xl sm:text-4xl font-semibold text-[#1C1C1C]">
             Writing
           </h1>
+          <p class="text-base sm:text-lg text-stone-700 leading-relaxed">
+            Essays and dispatches from Central Illinois exploring rural life, working-class roots, public policy, and the people shaping small-town America.
+          </p>
         </div>
 
         <!-- Writing Photo Spot (16:9 Editorial Banner Frame) -->
-        <figure class="rounded-2xl overflow-hidden bg-[#ECF3F5] border-2 border-[#335C67]/45 p-2.5 sm:p-3 transition-all hover:border-[#335C67]">
+        <figure class="rounded-2xl overflow-hidden bg-[#ECF3F5] border-2 border-dashed border-[#335C67]/45 p-2.5 sm:p-3 transition-all hover:border-[#335C67]">
           <div 
             onclick="triggerPhotoUpload('input-writing')" 
             role="button"
@@ -444,12 +525,45 @@
           >
             <img 
               id="img-writing" 
-              src="PXL_20261106_211731443.MP.jpg" 
+              src="images/zoey-writing.jpg" 
+              alt="Dispatches from Central Illinois" 
               class="w-full h-full object-cover hidden"
               onload="handleImageLoaded('writing')"
               onerror="handleImageError('writing')"
             />
+            <div id="placeholder-writing" class="p-6 flex flex-col items-center justify-center space-y-2">
+              <div class="w-12 h-12 rounded-full bg-[#335C67]/15 text-[#335C67] flex items-center justify-center group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                </svg>
+              </div>
+              <p class="font-serif text-lg font-medium text-[#1C1C1C]">Editorial / Backroads Banner Spot</p>
+              <p class="text-xs font-mono text-[#335C67] bg-[#ECF3F5] px-2.5 py-1 rounded-md border border-[#335C67]/25">
+                images/zoey-writing.jpg &middot; 16:9 Editorial Banner
+              </p>
+              <span class="text-xs text-stone-600 underline underline-offset-4 group-hover:text-[#335C67]">
+                Click to preview a photo from your device
+              </span>
+            </div>
+            <button 
+              id="change-btn-writing"
+              type="button"
+              class="hidden absolute bottom-3 right-3 px-3 py-1.5 rounded-full text-xs font-semibold bg-black/70 text-white hover:bg-black transition-colors"
+            >
+              Change Photo
+            </button>
+            <input 
+              id="input-writing" 
+              type="file" 
+              accept="image/*" 
+              class="hidden" 
+              onchange="previewUploadedPhoto(event, 'writing')" 
+            />
           </div>
+          <figcaption class="pt-2.5 px-1 flex items-center justify-between text-xs sm:text-sm text-stone-700">
+            <span class="font-medium text-[#335C67]">Dispatches from Central Illinois</span>
+            <span class="text-stone-500 text-xs">Down The Dirt Road</span>
+          </figcaption>
         </figure>
 
         <!-- Colorful Substack Callout Card -->
@@ -459,13 +573,27 @@
               Down The Dirt Road
             </h2>
             <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#335C67] text-white">
-              Published Monthly
+              Published 2x / Month
             </span>
           </div>
 
           <p class="text-stone-700 leading-relaxed">
-            <em>Down The Dirt Road</em> is Zoey’s monthly Substack publication featuring grounded commentary on rural equity, community, queer organizing, and everyday life in Rural America
+            <em>Down The Dirt Road</em> is Zoey’s twice-monthly Substack publication featuring grounded commentary on rural equity, community organizing, and everyday life in Pekin and beyond.
           </p>
+
+          <!-- Colorful Category Badges for Writing Themes -->
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-white text-[#2D6A4F] border border-[#CFE3D8]">
+              Community Stories
+            </span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-white text-[#335C67] border border-[#CBE0E5]">
+              Regional Advocacy
+            </span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-white text-[#D95D39] border border-[#F5D5CC]">
+              Personal Dispatches
+            </span>
+          </div>
+
           <div class="pt-2">
             <a 
               href="https://tothatzoey.substack.com" 
@@ -478,17 +606,14 @@
             </a>
           </div>
         </div>
-        <p>
-          Paragraph 1
-        </p>
-        <p>
-          Paragraph 2
-        </p>
       </section>
 
       <!-- 5. CONSULTING VIEW (Berry Plum #8F3958 & Multi-Accent Theme) -->
       <section id="view-consulting" class="page-view space-y-7" aria-label="Consulting">
         <div class="space-y-3">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#F9EFF3] text-[#8F3958] border border-[#EED0DC]">
+            Advisory &amp; Strategy
+          </span>
           <h1 class="text-3xl sm:text-4xl font-semibold text-[#1C1C1C]">
             Consulting
           </h1>
@@ -498,7 +623,7 @@
         </div>
 
         <!-- Consulting Photo Spot (4:3 Collaborative Portrait / Working Session Frame) -->
-        <figure class="rounded-2xl overflow-hidden bg-[#F9EFF3] border-2 border-[#8F3958]/45 p-2.5 sm:p-3 transition-all hover:border-[#8F3958]">
+        <figure class="rounded-2xl overflow-hidden bg-[#F9EFF3] border-2 border-dashed border-[#8F3958]/45 p-2.5 sm:p-3 transition-all hover:border-[#8F3958]">
           <div 
             onclick="triggerPhotoUpload('input-consulting')" 
             role="button"
@@ -553,7 +678,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="p-5 rounded-xl bg-[#F9EFF3] border border-[#EED0DC] border-t-4 border-t-[#8F3958]">
             <h2 class="font-serif text-xl font-medium text-[#1C1C1C]">
-              Rural Outreach &amp; Equity Strategy
+              Rural Outreach Strategy
             </h2>
             <p class="text-sm text-stone-700 mt-1.5 leading-relaxed">
               Designing authentic engagement campaigns and community listening frameworks tailored to small towns and rural counties.
@@ -562,46 +687,44 @@
 
           <div class="p-5 rounded-xl bg-[#EFF6F2] border border-[#CFE3D8] border-t-4 border-t-[#2D6A4F]">
             <h2 class="font-serif text-xl font-medium text-[#1C1C1C]">
-              Grassroots Campaign &amp; Civic Advising
+              Nonprofit &amp; Civic Capacity Building
             </h2>
             <p class="text-sm text-stone-700 mt-1.5 leading-relaxed">
-              Practical field strategy, coalition building, and voter/community mobilization rooted in local trust.
+              Step-by-step guidance on launching, structuring, and scaling grassroots 501(c)(3) programs and local coalitions from the ground up.
             </p>
           </div>
 
           <div class="p-5 rounded-xl bg-[#FEF8EC] border border-[#F7E3BA] border-t-4 border-t-[#E09F3E]">
             <h2 class="font-serif text-xl font-medium text-[#1C1C1C]">
-              Topic 3
+              Grassroots Campaign &amp; Event Planning
             </h2>
             <p class="text-sm text-stone-700 mt-1.5 leading-relaxed">
-             Topic 3
+              Practical field strategy, coalition building, town halls, and community mobilization rooted in local trust.
             </p>
           </div>
 
           <div class="p-5 rounded-xl bg-[#ECF3F5] border border-[#CBE0E5] border-t-4 border-t-[#335C67]">
             <h2 class="font-serif text-xl font-medium text-[#1C1C1C]">
-              Organizational &amp; Nonprofit Development
+              Operational &amp; Team Leadership
             </h2>
             <p class="text-sm text-stone-700 mt-1.5 leading-relaxed">
-              Step-by-step guidance on launching and scaling grassroots 501(c)(3) programs from the ground up.
+              Frontline management and team-culture coaching informed by 17 years leading high-volume grocery and technology stores.
             </p>
           </div>
         </div>
 
         <div class="pt-2">
-          <a 
-            href="mailto:contact@zoeycarter.me?subject=Consulting%20Inquiry%20for%20Zoey%20Carter" 
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#8F3958] text-white text-sm font-semibold hover:bg-[#712B45] transition-colors"
+          <button 
+            type="button"
+            onclick="navigateToContactWithTopic('Consulting & Strategy')"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#8F3958] text-white text-sm font-semibold hover:bg-[#712B45] transition-colors focus:outline-none"
           >
-            <span>Start a Conversation (contact@zoeycarter.me)</span>
+            <span>Request a Consulting Conversation</span>
             <span>&rarr;</span>
-          </a>
+          </button>
         </div>
       </section>
 
-    </main>
-  </div>
-  
       <!-- 6. CONTACT VIEW (Warm Pine Teal #2A6F68 / #EBF5F4 Theme) -->
       <section id="view-contact" class="page-view space-y-7" aria-label="Contact">
         <div class="space-y-3">
@@ -615,6 +738,59 @@
             Reach out to book Zoey for a speaking engagement, discuss a consulting project, or connect about rural advocacy in Central Illinois.
           </p>
         </div>
+
+        <!-- Contact Photo Spot (16:9 Banner Frame) -->
+        <figure class="rounded-2xl overflow-hidden bg-[#EBF5F4] border-2 border-dashed border-[#2A6F68]/45 p-2.5 sm:p-3 transition-all hover:border-[#2A6F68]">
+          <div 
+            onclick="triggerPhotoUpload('input-contact')" 
+            role="button"
+            tabindex="0"
+            onkeydown="if(event.key==='Enter'||event.key===' ') triggerPhotoUpload('input-contact')"
+            class="relative aspect-video w-full rounded-xl overflow-hidden bg-[#F5FBF9] flex flex-col items-center justify-center text-center cursor-pointer group"
+            title="Click to preview a photo from your device"
+          >
+            <img 
+              id="img-contact" 
+              src="images/zoey-contact.jpg" 
+              alt="Get in touch — Pekin, Illinois & beyond" 
+              class="w-full h-full object-cover hidden"
+              onload="handleImageLoaded('contact')"
+              onerror="handleImageError('contact')"
+            />
+            <div id="placeholder-contact" class="p-6 flex flex-col items-center justify-center space-y-2">
+              <div class="w-12 h-12 rounded-full bg-[#2A6F68]/15 text-[#2A6F68] flex items-center justify-center group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+              </div>
+              <p class="font-serif text-lg font-medium text-[#1C1C1C]">Community / Connection Photo Spot</p>
+              <p class="text-xs font-mono text-[#2A6F68] bg-[#EBF5F4] px-2.5 py-1 rounded-md border border-[#2A6F68]/25">
+                images/zoey-contact.jpg &middot; 16:9 Banner Frame
+              </p>
+              <span class="text-xs text-stone-600 underline underline-offset-4 group-hover:text-[#2A6F68]">
+                Click to preview a photo from your device
+              </span>
+            </div>
+            <button 
+              id="change-btn-contact"
+              type="button"
+              class="hidden absolute bottom-3 right-3 px-3 py-1.5 rounded-full text-xs font-semibold bg-black/70 text-white hover:bg-black transition-colors"
+            >
+              Change Photo
+            </button>
+            <input 
+              id="input-contact" 
+              type="file" 
+              accept="image/*" 
+              class="hidden" 
+              onchange="previewUploadedPhoto(event, 'contact')" 
+            />
+          </div>
+          <figcaption class="pt-2.5 px-1 flex items-center justify-between text-xs sm:text-sm text-stone-700">
+            <span class="font-medium text-[#2A6F68]">Get in touch — Pekin, Illinois &amp; beyond</span>
+            <span class="text-stone-500 text-xs">Direct Inquiry</span>
+          </figcaption>
+        </figure>
 
         <!-- Accessible Contact Form Card -->
         <div class="p-6 sm:p-8 rounded-2xl bg-[#EBF5F4] border border-[#C5E2DF] border-l-4 border-l-[#2A6F68]">
@@ -789,7 +965,7 @@
   <footer class="w-full max-w-[700px] mx-auto px-6 py-8 border-t border-stone-200/90 text-xs sm:text-sm text-stone-600 flex flex-wrap items-center justify-between gap-4">
     <div class="flex items-center gap-2">
       <span class="w-2 h-2 rounded-full bg-[#D95D39]"></span>
-      <span>&copy; 2026 Zoey Carter</span>
+      <span>&copy; 2026 Zoey Carter &middot; Pekin, Illinois</span>
     </div>
     <div class="flex flex-wrap items-center gap-5 font-medium">
       <a 
@@ -810,7 +986,8 @@
   </footer>
 
   <script>
-    const VALID_VIEWS = ['home', 'about', 'speaking', 'writing', 'consulting'];
+    const VALID_VIEWS = ['home', 'about', 'speaking', 'writing', 'consulting', 'contact'];
+    let latestFormattedMessage = '';
 
     function navigateTo(viewName, updateHash = true) {
       const target = VALID_VIEWS.includes(viewName) ? viewName : 'home';
@@ -833,14 +1010,101 @@
       });
 
       if (updateHash) {
-        if (target === 'home') {
-          history.replaceState(null, '', window.location.pathname);
-        } else {
-          history.replaceState(null, '', '#' + target);
+        try {
+          const baseUrl = window.location.href.split('#')[0];
+          if (target === 'home') {
+            history.replaceState(null, '', baseUrl);
+          } else {
+            history.replaceState(null, '', baseUrl + '#' + target);
+          }
+        } catch (err) {
+          // Safely ignore history API restrictions in sandboxed/blob preview environments
         }
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function navigateToContactWithTopic(topicValue) {
+      const topicSelect = document.getElementById('contact-topic');
+      if (topicSelect) {
+        topicSelect.value = topicValue;
+      }
+      resetContactForm(false);
+      navigateTo('contact');
+    }
+
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const org = document.getElementById('contact-org').value.trim();
+      const topic = document.getElementById('contact-topic').value;
+      const message = document.getElementById('contact-message').value.trim();
+
+      const subject = topic + ' — ' + name + (org ? ' (' + org + ')' : '');
+      const bodyLines = [
+        'Name: ' + name,
+        'Email: ' + email,
+        'Organization / Group: ' + (org || 'N/A'),
+        'Inquiry Type: ' + topic,
+        '',
+        'Message:',
+        message
+      ];
+      latestFormattedMessage = 'To: contact@zoeycarter.me\nSubject: ' + subject + '\n\n' + bodyLines.join('\n');
+
+      const previewBox = document.getElementById('contact-preview-box');
+      if (previewBox) {
+        previewBox.textContent = latestFormattedMessage;
+      }
+
+      const mailtoLink = document.getElementById('contact-mailto-link');
+      if (mailtoLink) {
+        mailtoLink.href = 'mailto:contact@zoeycarter.me?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+      }
+
+      const formEl = document.getElementById('contact-form');
+      const confirmEl = document.getElementById('contact-confirmation');
+      if (formEl && confirmEl) {
+        formEl.classList.add('hidden');
+        confirmEl.classList.remove('hidden');
+      }
+    }
+
+    function copyContactDetails() {
+      if (!latestFormattedMessage) return;
+      const tempTextarea = document.createElement('textarea');
+      tempTextarea.value = latestFormattedMessage;
+      tempTextarea.style.position = 'fixed';
+      tempTextarea.style.left = '-9999px';
+      document.body.appendChild(tempTextarea);
+      tempTextarea.select();
+      try {
+        document.execCommand('copy');
+        const labelEl = document.getElementById('copy-message-label');
+        if (labelEl) {
+          labelEl.textContent = 'Copied to Clipboard!';
+          setTimeout(() => {
+            labelEl.textContent = 'Copy Message Details';
+          }, 2500);
+        }
+      } catch (err) {
+        console.error('Copy failed', err);
+      }
+      document.body.removeChild(tempTextarea);
+    }
+
+    function resetContactForm(clearFields = true) {
+      const formEl = document.getElementById('contact-form');
+      const confirmEl = document.getElementById('contact-confirmation');
+      if (formEl && clearFields) {
+        formEl.reset();
+      }
+      if (formEl && confirmEl) {
+        confirmEl.classList.add('hidden');
+        formEl.classList.remove('hidden');
+      }
     }
 
     // Photo spot helpers: automatically display real image if present, or allow click-to-preview
