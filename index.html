@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zoey Carter — Writer, Speaker, Consultant & Community Advocate</title>
-  <meta name="description" content="Personal website of Zoey Carter — Writer, Speaker, Consultant, and Community Advocate based in Central Illinois. Founder of the Rural Equality Project and author of Down The Dirt Road." />
+  <meta name="description" content="Personal website of Zoey Carter — Writer, Speaker, Consultant, and Community Advocate based in Pekin, Central Illinois. Founder of the Rural Equality Project and author of Down The Dirt Road." />
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -21,6 +21,9 @@
     h3,
     button,
     input,
+    select,
+    textarea,
+    label,
     figcaption,
     .font-serif {
       font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -89,19 +92,56 @@
       color: #FFFFFF;
       font-weight: 600;
     }
+
+    .nav-link[data-nav="contact"].active-nav {
+      background-color: #2A6F68;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
   <!-- Top Multi-Color Earthy Midwestern Accent Bar -->
-  <div class="w-full h-2 grid grid-cols-4" aria-hidden="true">
+  <div class="w-full h-2 grid grid-cols-5" aria-hidden="true">
     <div class="bg-[#2D6A4F]"></div>
     <div class="bg-[#D95D39]"></div>
     <div class="bg-[#E09F3E]"></div>
     <div class="bg-[#335C67]"></div>
+    <div class="bg-[#2A6F68]"></div>
   </div>
 
   <div class="w-full max-w-[700px] mx-auto px-6 pt-10 sm:pt-14 pb-16 flex-grow">
+    
+    <!-- Minimalist Header (No "Home" item in nav; clicking "Zoey Carter" returns to unmarked Home view) -->
+    <header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-8 mb-10 border-b border-stone-200/90">
+      <button 
+        type="button" 
+        onclick="navigateTo('home')" 
+        title="Return to main page"
+        class="text-left text-2xl sm:text-[26px] font-semibold tracking-tight text-[#1C1C1C] hover:text-[#2D6A4F] transition-colors focus:outline-none flex items-center gap-2.5 group"
+      >
+        <span>Zoey Carter</span>
+      </button>
+
+      <nav aria-label="Primary Navigation" class="flex flex-wrap items-center gap-1.5 text-sm">
+        <button type="button" onclick="navigateTo('about')" data-nav="about" class="nav-link focus:outline-none">
+          About Me
+        </button>
+        <button type="button" onclick="navigateTo('speaking')" data-nav="speaking" class="nav-link focus:outline-none">
+          Speaking
+        </button>
+        <button type="button" onclick="navigateTo('writing')" data-nav="writing" class="nav-link focus:outline-none">
+          Writing
+        </button>
+        <button type="button" onclick="navigateTo('consulting')" data-nav="consulting" class="nav-link focus:outline-none">
+          Consulting
+        </button>
+        <button type="button" onclick="navigateTo('contact')" data-nav="contact" class="nav-link focus:outline-none">
+          Contact
+        </button>
+      </nav>
+    </header>
     
     <!-- Minimalist Header (No "Home" item in nav; clicking "Zoey Carter" returns to unmarked Home view) -->
     <header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-8 mb-10 border-b border-stone-200/90">
