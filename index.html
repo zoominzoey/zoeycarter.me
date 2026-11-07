@@ -304,39 +304,6 @@
               onload="handleImageLoaded('speaking')"
               onerror="handleImageError('speaking')"
             />
-            <div id="placeholder-speaking" class="p-6 flex flex-col items-center justify-center space-y-2">
-              <div class="w-12 h-12 rounded-full bg-[#E09F3E]/20 text-[#B86E14] flex items-center justify-center group-hover:scale-105 transition-transform">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
-                </svg>
-              </div>
-              <p class="font-serif text-lg font-medium text-[#1C1C1C]">Stage / Event Photo Spot</p>
-              <p class="text-xs font-mono text-[#B86E14] bg-[#FEF8EC] px-2.5 py-1 rounded-md border border-[#E09F3E]/35">
-                images/zoey-speaking.jpg &middot; 16:9 Wide Frame
-              </p>
-              <span class="text-xs text-stone-600 underline underline-offset-4 group-hover:text-[#B86E14]">
-                Click to preview a photo from your device
-              </span>
-            </div>
-            <button 
-              id="change-btn-speaking"
-              type="button"
-              class="hidden absolute bottom-3 right-3 px-3 py-1.5 rounded-full text-xs font-semibold bg-black/70 text-white hover:bg-black transition-colors"
-            >
-              Change Photo
-            </button>
-            <input 
-              id="input-speaking" 
-              type="file" 
-              accept="image/*" 
-              class="hidden" 
-              onchange="previewUploadedPhoto(event, 'speaking')" 
-            />
-          </div>
-          <figcaption class="pt-2.5 px-1 flex items-center justify-between text-xs sm:text-sm text-stone-700">
-            <span class="font-medium text-[#B86E14]">Keynotes, panels, and community workshops</span>
-            <span class="text-stone-500 text-xs">Speaking &amp; Events</span>
-          </figcaption>
         </figure>
         
         <div class="space-y-3">
