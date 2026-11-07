@@ -288,14 +288,6 @@
 
         <!-- Speaking Photo Spot (16:9 Stage / Keynote Frame) -->
         <figure class="rounded-2xl overflow-hidden bg-[#FEF8EC] border-2 border-[#E09F3E]/55 p-2.5 sm:p-3 transition-all hover:border-[#E09F3E]">
-          <div 
-            onclick="triggerPhotoUpload('input-speaking')" 
-            role="button"
-            tabindex="0"
-            onkeydown="if(event.key==='Enter'||event.key===' ') triggerPhotoUpload('input-speaking')"
-            class="relative aspect-video w-full rounded-xl overflow-hidden bg-[#FFFDF7] flex flex-col items-center justify-center text-center cursor-pointer group"
-            title="Click to preview a photo from your device"
-          >
             <img 
               id="img-speaking" 
               src="_MG_7363.jpg" 
@@ -304,12 +296,6 @@
               onload="handleImageLoaded('speaking')"
               onerror="handleImageError('speaking')"
             />
-            <div id="placeholder-speaking" class="p-6 flex flex-col items-center justify-center space-y-2">
-              <div class="w-12 h-12 rounded-full bg-[#E09F3E]/20 text-[#B86E14] flex items-center justify-center group-hover:scale-105 transition-transform">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
-                </svg>
-          </div>
         </figure>
         <div class="space-y-3">
           <h1 class="text-3xl sm:text-4xl font-semibold text-[#1C1C1C]">
